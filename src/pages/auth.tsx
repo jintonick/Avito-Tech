@@ -14,7 +14,7 @@ export default function Auth({ onLogin }: AuthProps) {
       password: HTMLInputElement;
     };
     onLogin(email.value, password.value);
-    navigate('/mainpage');
+    navigate('/movie');
   };
 
   return (
