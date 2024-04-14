@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import account from '../components/imgs/account.svg';
-import { Review } from '../interfaces/pages';
-import { ReviewStyles } from '../interfaces/components';
-import '../pages/styles/review.css';
+import React, { useState } from "react";
+import account from "../components/imgs/account.svg";
+import { Review } from "../interfaces/pages";
+import { ReviewStyles } from "../interfaces/components";
+import "../pages/styles/review.css";
 interface ReviewCardProps {
   review: Review;
 }
@@ -10,14 +10,14 @@ interface ReviewCardProps {
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const reviewStyles: ReviewStyles = {
-    Позитивный: { background: 'bg-green-300', textColor: 'text-green-800' },
-    Нейтральный: { background: 'bg-gray-300', textColor: 'text-gray-800' },
-    Негативный: { background: 'bg-red-200', textColor: 'text-red-800' },
-    default: { background: 'bg-gray-200', textColor: 'text-gray-900' },
+    Позитивный: { background: "bg-green-300", textColor: "text-green-800" },
+    Нейтральный: { background: "bg-gray-300", textColor: "text-gray-800" },
+    Негативный: { background: "bg-red-200", textColor: "text-red-800" },
+    default: { background: "bg-gray-200", textColor: "text-gray-900" },
   };
   const currentStyle = reviewStyles[review.type] || reviewStyles.default;
   function formatText(text: string) {
-    return text.split('\r\n').map((line, index) => (
+    return text.split("\r\n").map((line, index) => (
       <React.Fragment key={index}>
         {line}
         <br />
@@ -44,7 +44,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
       <div className="px-[2.5vw]">
         <h1 className="font-semibold">{review.title}</h1>
         <p
-          className={`overflow-hidden ${!isExpanded ? 'max-h-[6em] text-fade' : ''}`}
+          className={`overflow-hidden ${!isExpanded ? "max-h-[6em] text-fade" : ""}`}
         >
           {formatText(review.review)}
         </p>

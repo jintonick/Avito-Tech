@@ -54004,14 +54004,12 @@
                 (null == w ? void 0 : w.total) > 0
                   ? null == w
                     ? void 0
-                    : w.docs
-                        .slice(x, S)
-                        .map((t) =>
-                          e.createElement(NS, {
-                            key: null == t ? void 0 : t.id,
-                            review: t,
-                          }),
-                        )
+                    : w.docs.slice(x, S).map((t) =>
+                        e.createElement(NS, {
+                          key: null == t ? void 0 : t.id,
+                          review: t,
+                        }),
+                      )
                   : e.createElement(
                       "div",
                       { className: "text-center w-full text-black" },

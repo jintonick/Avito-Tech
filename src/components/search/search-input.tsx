@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FC } from 'react';
-import useSearchHistory from '../../hooks/use-search-history';
-import '../../pages/styles/navbar.css';
+import React, { ChangeEvent, FC } from "react";
+import useSearchHistory from "../../hooks/use-search-history";
+import "../../pages/styles/navbar.css";
 
 interface SearchInputProps {
   onSearch: (query: string) => void;

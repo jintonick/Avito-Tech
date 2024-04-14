@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   useGetMoviesQuery,
   useGetSearchMovieQuery,
-} from '../store/api/get-films';
-import { useSearch } from '../components/search/search-context';
-import NavBar from './nav-bar';
-import Card from '../components/move-card/movie-card';
-import { Movie } from '../interfaces/components';
-import Loader from '../components/loader';
-import './styles/paginator.css';
-import './styles/movepage.css';
-import { Pagination, ConfigProvider } from 'antd';
+} from "../store/api/get-films";
+import { useSearch } from "../components/search/search-context";
+import NavBar from "./nav-bar";
+import Card from "../components/move-card/movie-card";
+import { Movie } from "../interfaces/components";
+import Loader from "../components/loader";
+import "./styles/paginator.css";
+import "./styles/movepage.css";
+import { Pagination, ConfigProvider } from "antd";
 
 const MoviePage = () => {
   const itemsPerPage = 10;
@@ -25,7 +25,7 @@ const MoviePage = () => {
     setCurrentPage,
   } = useSearch();
   const formattedAgeRatingFilter = ageRatingFilter
-    ? ageRatingFilter.replace('+', '')
+    ? ageRatingFilter.replace("+", "")
     : null;
   const { data: movieSearch, isLoading: isSearchLoading } =
     useGetSearchMovieQuery(
@@ -48,7 +48,7 @@ const MoviePage = () => {
   const handlePageChange = (newPage: number, newPageSize?: number) => {
     setPage(newPage);
     setCurrentPage(newPage);
-    if (typeof newPageSize === 'number') {
+    if (typeof newPageSize === "number") {
       setPageSize(newPageSize);
     }
   };
@@ -96,9 +96,9 @@ const MoviePage = () => {
               theme={{
                 components: {
                   Pagination: {
-                    colorText: '#ff5500',
-                    itemActiveBgDisabled: '#fff',
-                    colorPrimaryBorder: '#ff5500',
+                    colorText: "#ff5500",
+                    itemActiveBgDisabled: "#fff",
+                    colorPrimaryBorder: "#ff5500",
                   },
                 },
               }}

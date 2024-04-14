@@ -1,17 +1,17 @@
-import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../utils/authprovider';
-import logo from '../components/imgs/kpBigLogo.svg';
-import minilogo from '../components/imgs/kinopoisk-icon-main.svg';
-import logouticon from '../components/imgs/log-out-white.svg';
-import './styles/movepage.css';
+import React from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../utils/authprovider";
+import logo from "../components/imgs/kpBigLogo.svg";
+import minilogo from "../components/imgs/kinopoisk-icon-main.svg";
+import logouticon from "../components/imgs/log-out-white.svg";
+import "./styles/movepage.css";
 
 export default function Header() {
   const navigate = useNavigate();
   const { isAuth, logout } = useAuth();
   const handleLogout = () => {
     logout();
-    navigate('/auth');
+    navigate("/auth");
   };
   return (
     <div className="header-contanier">

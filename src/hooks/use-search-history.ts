@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { debounce } from 'lodash';
+import { useState, useEffect } from "react";
+import { debounce } from "lodash";
 
-const useSearchHistory = (initialQuery = '') => {
+const useSearchHistory = (initialQuery = "") => {
   const [query, setQuery] = useState(initialQuery);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [history, setHistory] = useState<string[]>(() => {
-    const saved = localStorage.getItem('searchHistory');
+    const saved = localStorage.getItem("searchHistory");
     return saved ? JSON.parse(saved) : [];
   });
   useEffect(() => {
-    localStorage.setItem('searchHistory', JSON.stringify(history));
+    localStorage.setItem("searchHistory", JSON.stringify(history));
   }, [history]);
   const updateHistory = (newQuery: string) => {
     if (newQuery && !history.includes(newQuery)) {

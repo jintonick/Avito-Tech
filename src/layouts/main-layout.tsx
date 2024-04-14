@@ -1,8 +1,8 @@
-import React from 'react';
-import AppRoutes from '../routes/routes';
-import Header from '../pages/header';
-import Footer from '../pages/footer';
-import { SearchProvider } from '../components/search/search-context';
+import React from "react";
+import AppRoutes from "../routes/routes";
+import Header from "../pages/header";
+import Footer from "../pages/footer";
+import { SearchProvider } from "../components/search/search-context";
 
 const Layout = () => {
   return (

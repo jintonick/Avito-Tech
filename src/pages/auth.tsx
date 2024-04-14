@@ -1,6 +1,6 @@
-import React, { FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthProps } from '../interfaces/pages';
+import React, { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthProps } from "../interfaces/pages";
 
 export default function Auth({ onLogin }: AuthProps) {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Auth({ onLogin }: AuthProps) {
       password: HTMLInputElement;
     };
     onLogin(email.value, password.value);
-    navigate('/movie');
+    navigate("/movie");
   };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 text-gray-100">
