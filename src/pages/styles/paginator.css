@@ -1,0 +1,7 @@
+.ant-pagination-item-link, .ant-pagination-item a {
+    color: blue;
+}
+
+.ant-pagination-item-active a {
+    color: red;
+}

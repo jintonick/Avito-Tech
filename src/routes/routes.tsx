@@ -8,13 +8,11 @@ import { useAuth } from '../utils/authprovider';
 
 const AppRoutes = () => {
   const auth = useAuth();
-
   const handleLogin = (username: string, password: string) => {
     if (username === 'test@mail.com' && password === 'pass') {
       auth.login();
     }
   };
-
   return (
     <Routes>
       <Route path="/auth" element={<Auth onLogin={handleLogin} />} />
@@ -35,9 +33,7 @@ const AppRoutes = () => {
         }
       />
       <Route path="/" element={<Navigate replace to="/auth" />} />
-      {/* Другие маршруты */}
     </Routes>
   );
 };
-
 export default AppRoutes;

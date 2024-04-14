@@ -2,7 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {fontFamily: {
+        'graphik': ['"Graphik Kinopoisk LC Web"', 'sans-serif']
+      }},
   },
   plugins: [require('@tailwindcss/forms')],
 };

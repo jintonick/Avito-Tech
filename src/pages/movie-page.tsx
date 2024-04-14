@@ -1,50 +1,116 @@
-import React, { useState } from 'react';
-import { useGetMoviesQuery } from '../store/api/get-films';
+import React, { useState, useEffect } from 'react';
+import {
+  useGetMoviesQuery,
+  useGetSearchMovieQuery,
+} from '../store/api/get-films';
+import { useSearch } from '../components/search/search-context';
 import NavBar from './nav-bar';
-import Card, { Movie } from '../components/move-card/movie-card';
+import Card from '../components/move-card/movie-card';
+import { Movie } from '../interfaces/components';
 import Loader from '../components/loader';
-import Pagination from '@mui/material/Pagination';
+import './styles/paginator.css';
+import './styles/movepage.css';
+import { Pagination, ConfigProvider } from 'antd';
 
 const MoviePage = () => {
-  const [page, setPage] = useState(1);
   const itemsPerPage = 10;
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(itemsPerPage);
+  const {
+    searchQuery,
+    filters: { yearFilter, countryFilter, ageRatingFilter },
+    setFilters,
+    filters,
+    currentPage,
+    setCurrentPage,
+  } = useSearch();
+  const formattedAgeRatingFilter = ageRatingFilter
+    ? ageRatingFilter.replace('+', '')
+    : null;
+  const { data: movieSearch, isLoading: isSearchLoading } =
+    useGetSearchMovieQuery(
+      {
+        page,
+        query: searchQuery,
+        limit: pageSize,
+      },
+      {
+        skip: !searchQuery,
+      },
+    );
   const { data: movies, isLoading } = useGetMoviesQuery({
     page: page,
-    limit: itemsPerPage,
+    limit: pageSize,
+    releaseYears: yearFilter,
+    countries: countryFilter,
+    ageRating: formattedAgeRatingFilter,
   });
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    setPage(value);
+  const handlePageChange = (newPage: number, newPageSize?: number) => {
+    setPage(newPage);
+    setCurrentPage(newPage);
+    if (typeof newPageSize === 'number') {
+      setPageSize(newPageSize);
+    }
   };
+  useEffect(() => {
+    setPage(currentPage);
+  }, [currentPage]);
+  const currentData = searchQuery && movieSearch ? movieSearch : movies;
   if (isLoading)
     return (
-      <div>
+      <div className="h-full">
+        <Loader />
+      </div>
+    );
+  if (isSearchLoading)
+    return (
+      <div className="h-full">
         <Loader />
       </div>
     );
   return (
-    <div className="pt-[40px] h-full mb-[50px] px-[100px]">
-      <div className="w-full flex justify-center items-center">
-        <div className="ml-[100px]">
-          <div className="px-[100px]">
-            <h1 className="text-[32px] font-bold mb-[20px]">Фильмы</h1>
-            <NavBar />
-            <div className="h-full flex flex-wrap justify-between gap-x-5 gap-y-3">
-              {movies?.docs.map((movie: Movie) => (
-                <Card key={movie.id} movie={movie} cardType="movie" />
-              ))}
-            </div>
-            <div className="bg-[#ff5500] p-[4px] text-white rounded-[20px] mt-[10px] w-[400px] flex justify-center">
+    <div className="movie-container">
+      <div className="w-full flex justify-center items-start">
+        <div>
+          <h1 className="film-text">Фильмы</h1>
+          <div className="flex justify-center items-center w-full">
+            <NavBar
+              onYearChange={(year) =>
+                setFilters({ ...filters, yearFilter: year })
+              }
+              onCountryChange={(country) =>
+                setFilters({ ...filters, countryFilter: country })
+              }
+              onAgeRatingChange={(rating) =>
+                setFilters({ ...filters, ageRatingFilter: rating })
+              }
+            />
+          </div>
+          <div className="movie-card-contanier">
+            {currentData?.docs.map((movie: Movie) => (
+              <Card key={movie.id} movie={movie} cardType="movie" />
+            ))}
+          </div>
+          <div className="border-[#ff5500] border-[2px] p-[4px] text-white rounded-[10px] mt-[10px] w-full flex justify-center">
+            <ConfigProvider
+              theme={{
+                components: {
+                  Pagination: {
+                    colorText: '#ff5500',
+                    itemActiveBgDisabled: '#fff',
+                    colorPrimaryBorder: '#ff5500',
+                  },
+                },
+              }}
+            >
               <Pagination
-                count={movies ? Math.ceil(movies.total / itemsPerPage) : 1}
-                page={page}
+                current={page}
+                total={currentData ? currentData.total : 0}
+                pageSize={pageSize}
                 onChange={handlePageChange}
-                variant="outlined"
-                color="standard"
+                showSizeChanger
               />
-            </div>
+            </ConfigProvider>
           </div>
         </div>
       </div>

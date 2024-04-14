@@ -1,0 +1,172 @@
+.back-g {
+    padding-right: 180px;
+    padding-left: 180px;
+}
+
+.description-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin-top: 30px;
+}
+
+.bg-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Adjust based on your needs */
+    background-size: cover;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.description-image {
+    border-radius: 10px;
+}
+
+.description-image-container {
+    grid-column: span 1 / span 1;
+    margin-bottom: 40px;
+}
+
+.description-data-container {
+    grid-column: span 2 / span 2;
+}
+
+.description-raitingandactor-container {
+    grid-column: span 1 / span 1;
+}
+
+.description-raiting-container {
+    margin-top: 50px;
+}
+
+.poster-image {
+    height: 300px;  /* Установка фиксированной высоты для всех изображений */
+    width: 100%;    /* Ширина изображения будет адаптироваться к ширине контейнера */
+    object-fit: cover;
+}
+
+.poster-container {
+    width: 100%;
+    height: 100%;
+}
+
+.series-container {
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-top: 20px;
+}
+
+.similar-movies-container {
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматически заполняет доступное пространство, создавая столько колонок, сколько поместится */
+    gap: 1rem; /* Пространство между карточками */
+    width: 100%;
+}
+
+.review-title-container{
+    width: 100%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.review-main-container{
+    background: rgba(243, 244, 246);
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .review-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .back-g {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .description-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .description-image {
+        height: 350px;
+        border-radius: 10px;
+    }
+    .description-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    .description-data-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .description-raitingandactor-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+    .description-raiting-container{
+        margin-top: 0px;
+        padding-left: 10px;
+    }
+    .poster-container {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+    .series-container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 20px;
+    }
+    .series-slider-container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .similar-movies-container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .similar-slider {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+    .review-title-container{
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .review-main-container{
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 50px;
+    }
+}

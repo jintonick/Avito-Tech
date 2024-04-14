@@ -27,15 +27,24 @@
 }
 
 .cardFront {
-    /* Фон для лицевой стороны (фото фильма) */
     background: black;
 }
 
 .cardBack {
-    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
     transform: rotateY(180deg);
     padding: 20px;
     box-sizing: border-box;
-    /* Стили для описания фильма */
+}
+
+@media (max-width: 500px) {
+    .cardContainer {
+        width: 190px;
+        height: 280px;
+        perspective: 1000px;
+    }
 }
 

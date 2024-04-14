@@ -1,0 +1,13 @@
+.text-fade {
+    position: relative;
+    mask-image: linear-gradient(to bottom, black 0%, transparent);
+}
+
+.text-fade::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2em;
+}

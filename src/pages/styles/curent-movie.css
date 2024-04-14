@@ -1,0 +1,12 @@
+.bg-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
