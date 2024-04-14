@@ -5,7 +5,10 @@ export const getFilmsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.kinopoisk.dev/v1.4',
     prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', '');
+      const token = process.env.TOKEN;
+      if (token) {
+        headers.set('X-API-KEY', token);
+      }
       return headers;
     },
   }),

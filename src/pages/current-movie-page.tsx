@@ -82,7 +82,7 @@ export default function CurrentMoviePage() {
       </div>
     );
   const divStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${movie.backdrop.url})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${movie?.backdrop?.url})`,
     backgroundSize: 'cover',
   };
   return (
@@ -98,14 +98,14 @@ export default function CurrentMoviePage() {
         </Link>
         <div className="description-container">
           <div className="description-image-container">
-            <img className="description-image" src={movie.poster.url} />
+            <img className="description-image" src={movie?.poster?.url} />
           </div>
           <div className="description-data-container">
-            <h1 className="text-[32px] font-bold">{movie.name}</h1>
-            <h1 className="font-semibold">{movie.year}</h1>
+            <h1 className="text-[32px] font-bold">{movie?.name}</h1>
+            <h1 className="font-semibold">{movie?.year}</h1>
             <h1>
-              {movie.description !== ''
-                ? movie.description
+              {movie?.description !== ''
+                ? movie?.description
                 : 'Нет информации об описании'}
             </h1>
           </div>
@@ -115,7 +115,7 @@ export default function CurrentMoviePage() {
               <ul>
                 {actors.map((actor, index) => (
                   <li key={index}>
-                    <p>{actor.name}</p>
+                    <p>{actor?.name}</p>
                   </li>
                 ))}
               </ul>
@@ -124,22 +124,22 @@ export default function CurrentMoviePage() {
               <h1 className="text-[18px] font-semibold">Рейтинг</h1>
               <div className="flex gap-3">
                 <span>Кинописк</span>
-                <span className="font-semibold">{movie.rating.kp}</span>
+                <span className="font-semibold">{movie?.rating?.kp}</span>
               </div>
               <div className="flex gap-3">
                 <span>IMDb</span>
-                <span className="font-semibold">{movie.rating.imdb}</span>
+                <span className="font-semibold">{movie?.rating?.imdb}</span>
               </div>
               <div className="flex gap-3">
                 <span>Кинокритики</span>
                 <span className="font-semibold">
-                  {movie.rating.filmCritics}
+                  {movie?.rating?.filmCritics}
                 </span>
               </div>
               <div className="flex gap-3">
                 <span className="truncate">Русские кинокритики</span>
                 <span className="font-semibold">
-                  {movie.rating.russianFilmCritics}
+                  {movie?.rating?.russianFilmCritics}
                 </span>
               </div>
             </div>
@@ -150,11 +150,11 @@ export default function CurrentMoviePage() {
             <Slider {...posterSettings}>
               {poster?.docs?.map((poster: Poster) => (
                 <div
-                  key={poster.id}
+                  key={poster?.id}
                   className="flex justify-center items-center h-full"
                 >
                   <img
-                    src={poster.url}
+                    src={poster?.url}
                     alt="Movie Poster"
                     className="poster-image mx-auto"
                   />
@@ -168,20 +168,20 @@ export default function CurrentMoviePage() {
       </div>
       <div className="mb-[100px]">
         <div className="series-container">
-          {movie.type === 'tv-series' && !isSeasonsLoading && seasons && (
-            <SeasonsList seasons={seasons.docs} />
+          {movie?.type === 'tv-series' && !isSeasonsLoading && seasons && (
+            <SeasonsList seasons={seasons?.docs} />
           )}
         </div>
         <div className="">
-          {movie?.similarMovies && movie.similarMovies.length > 0 && (
+          {movie?.similarMovies && movie?.similarMovies?.length > 0 && (
             <div className="similar-movies-container">
               <h1 className="text-[32px] font-bold mb-[40px]">
                 Похожие фильмы
               </h1>
               <div className="similar-slider">
                 <Slider {...settings}>
-                  {movie.similarMovies.map((similarMovie: Movie) => (
-                    <div key={similarMovie.id}>
+                  {movie?.similarMovies?.map((similarMovie: Movie) => (
+                    <div key={similarMovie?.id}>
                       <Card movie={similarMovie} cardType="similarMovie" />
                     </div>
                   ))}
@@ -198,10 +198,10 @@ export default function CurrentMoviePage() {
         <div className="flex flex-col justify-center items-center">
           <div className="mb-[10px] flex flex-wrap gap-x-3 justify-center items-center">
             {review?.total > 0 ? (
-              review.docs
+              review?.docs
                 .slice(start, end)
                 .map((reviewItem: Review) => (
-                  <ReviewCard key={reviewItem.id} review={reviewItem} />
+                  <ReviewCard key={reviewItem?.id} review={reviewItem} />
                 ))
             ) : (
               <div className="text-center w-full text-black">Нет отзывов</div>
@@ -210,7 +210,7 @@ export default function CurrentMoviePage() {
           <div className="w-full flex justify-center">
             <Pagination
               current={currentPage}
-              total={review ? review.docs.length : 0}
+              total={review ? review?.docs?.length : 0}
               pageSize={pageSize}
               onChange={handleChangePage}
               showSizeChanger={false}
