@@ -6,15 +6,14 @@
 
 ```npx prettier --write "**/*.{js,jsx,ts,tsx,css,md}"```
 
-
 ## Запуск проекта
 
-TOKEN=\<Ваш токен\> npm run start
+```TOKEN=\<Ваш токен\> npm run start ```
 
 прим
-TOKEN=1111111-QQQQQQQ-JJJJJJJ-2222222 npm run start
+```TOKEN=1111111-QQQQQQQ-JJJJJJJ-2222222 npm run start```
 
-## В проекте реализована авторизация.
+### Данные для авторизации
 
 **Логин**: test@mail.com
 
@@ -30,15 +29,53 @@ ReduxTolkit, для api RTKQuery
 
 **Библиотеки компонент**
 
-Ant Disign
+* Ant Disign
 
-React Slick
+* React Slick
 
 **Библиотеки для стилизации**
 
-Tailwincss
+* Tailwincss
 
-ESlint
+* ESlint
+
+## В проекте рализовано
+
+### На странице со списком всех фильмов
+
+* Реализованы все основные пункты
+
+**Дполнительные требования**
+
+* Сохраняется история пользователя
+
+* Реализован **suggesеt**
+
+### На странице с отдельным фильмом
+
+* Реализованы все основные пункты
+
+### Нефункциональные требования
+
+* реализованы все пункты
+
+**Дополнительные требования**
+
+* Проект написан c использованием **TypeScript**
+
+* Есть Docker файл
+
+### Другие требования
+
+* Реализована авторзация
+
+
+
+
+
+
+
+
 
 ## Примеры запросов
 
@@ -146,6 +183,7 @@ Safari/537.36\' \\ -H \'x-api-key: WF76VQQ-HQB4P5G-JFJH8DF-CRKDP1M\' \\
 \--compressed
 ```
 
+
 **Запрос на получение отзывов к фильму**
 
 ```
@@ -163,3 +201,4 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile
 Safari/537.36\' \\ -H \'x-api-key: WF76VQQ-HQB4P5G-JFJH8DF-CRKDP1M\' \\
 \--compressed
 ```
+
