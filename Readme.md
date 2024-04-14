@@ -1,6 +1,6 @@
 ## Установка зависимостей
 
-```npm install \--legacy-peer-deps```
+```npm install --legacy-peer-deps```
 
 после устаноки node_modules выполняем
 
