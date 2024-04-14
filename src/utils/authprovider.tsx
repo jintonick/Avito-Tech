@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface AuthContextType {
   isAuth: boolean;
@@ -11,13 +11,13 @@ export const useAuth = () => {
   return useContext(AuthContext)!;
 };
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(!!localStorage.getItem("isAuth"));
+  const [isAuth, setIsAuth] = useState(!!localStorage.getItem('isAuth'));
   const login = () => {
-    localStorage.setItem("isAuth", "true");
+    localStorage.setItem('isAuth', 'true');
     setIsAuth(true);
   };
   const logout = () => {
-    localStorage.removeItem("isAuth");
+    localStorage.removeItem('isAuth');
     setIsAuth(false);
   };
   return (

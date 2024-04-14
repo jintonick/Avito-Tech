@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useParams } from "react-router-dom";
-import { Pagination } from "antd";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useParams } from 'react-router-dom';
+import { Pagination } from 'antd';
+import { Link } from 'react-router-dom';
 import {
   useGetMovieByIdQuery,
   useGetSeasonByIdQuery,
   useGetPosterByIdQuery,
   useGetReviewByIdQuery,
-} from "../store/api/get-films";
-import { Person, Movie, Review, Poster } from "../interfaces/pages";
-import Loader from "../components/loader";
-import Card from "../components/move-card/movie-card";
-import SeasonsList from "../components/season-list";
-import ReviewCard from "../components/review-card";
-import arrow from "../components/imgs/arrow-left-white.svg";
-import "./styles/current-movie-page.css";
+} from '../store/api/get-films';
+import { Person, Movie, Review, Poster } from '../interfaces/pages';
+import Loader from '../components/loader';
+import Card from '../components/move-card/movie-card';
+import SeasonsList from '../components/season-list';
+import ReviewCard from '../components/review-card';
+import arrow from '../components/imgs/arrow-left-white.svg';
+import './styles/current-movie-page.css';
 
 export default function CurrentMoviePage() {
   const { id } = useParams();
@@ -38,7 +38,7 @@ export default function CurrentMoviePage() {
   const end = start + pageSize;
   const actors: Person[] =
     movie?.persons?.filter(
-      (person: Person) => person.enProfession === "actor",
+      (person: Person) => person.enProfession === 'actor'
     ) || [];
   const settings = {
     dots: true,
@@ -83,7 +83,7 @@ export default function CurrentMoviePage() {
     );
   const divStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${movie?.backdrop?.url})`,
-    backgroundSize: "cover",
+    backgroundSize: 'cover',
   };
   return (
     <div className="h-full text-gray-200 font-graphik">
@@ -104,9 +104,9 @@ export default function CurrentMoviePage() {
             <h1 className="text-[32px] font-bold">{movie?.name}</h1>
             <h1 className="font-semibold">{movie?.year}</h1>
             <h1>
-              {movie?.description !== ""
+              {movie?.description !== ''
                 ? movie?.description
-                : "Нет информации об описании"}
+                : 'Нет информации об описании'}
             </h1>
           </div>
           <div className="description-raitingandactor-container">
@@ -162,13 +162,13 @@ export default function CurrentMoviePage() {
               ))}
             </Slider>
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>
       <div className="mb-[100px]">
         <div className="series-container">
-          {movie?.type === "tv-series" && !isSeasonsLoading && seasons && (
+          {movie?.type === 'tv-series' && !isSeasonsLoading && seasons && (
             <SeasonsList seasons={seasons?.docs} />
           )}
         </div>

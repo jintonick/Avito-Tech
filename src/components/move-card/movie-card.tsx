@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./movie-card.css";
-import kpCircleLogo from "../imgs/kpCircleLogo.svg";
-import imdbCircleLogo from "../imgs/imdbCircleLogo.png";
-import { Movie } from "../../interfaces/components";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './movie-card.css';
+import kpCircleLogo from '../imgs/kpCircleLogo.svg';
+import imdbCircleLogo from '../imgs/imdbCircleLogo.png';
+import { Movie } from '../../interfaces/components';
 
 export interface CardProps {
   movie: Movie;
-  cardType: "movie" | "similarMovie";
+  cardType: 'movie' | 'similarMovie';
 }
 
 const Card: React.FC<CardProps> = ({ movie, cardType }) => {
@@ -19,20 +19,20 @@ const Card: React.FC<CardProps> = ({ movie, cardType }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link to={`/movie/${movie.id}`} className="cardContainer">
-        <div className={`card ${isHovered ? "is-hovered" : ""}`}>
+        <div className={`card ${isHovered ? 'is-hovered' : ''}`}>
           <div className="cardFront">
             <img className="h-90%" src={movie?.poster.url} />
           </div>
           <div className="cardBack">
             <div className="h-auto">
               <h1 className="font-bold">{movie?.name}</h1>
-              {cardType === "movie" ? (
+              {cardType === 'movie' ? (
                 <p className="text-[13px]">{movie?.shortDescription}</p>
               ) : (
-                ""
+                ''
               )}
             </div>
-            {cardType === "movie" ? (
+            {cardType === 'movie' ? (
               <div className="flex justify-between px-[30px] mb-[5px]">
                 <div className="flex flex-col justify-center items-center">
                   <img
@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({ movie, cardType }) => {
                 </div>
               </div>
             ) : (
-              ""
+              ''
             )}
           </div>
         </div>

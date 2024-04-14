@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 (self.webpackChunkavito = self.webpackChunkavito || []).push([
   [364],
   {
@@ -21,15 +21,15 @@
             value: void 0 === t ? -1 : t,
             delta: 0,
             entries: [],
-            id: "v2-"
-              .concat(Date.now(), "-")
+            id: 'v2-'
+              .concat(Date.now(), '-')
               .concat(Math.floor(8999999999999 * Math.random()) + 1e12),
           };
         },
         c = function (e, t) {
           try {
             if (PerformanceObserver.supportedEntryTypes.includes(e)) {
-              if ("first-input" === e && !("PerformanceEventTiming" in self))
+              if ('first-input' === e && !('PerformanceEventTiming' in self))
                 return;
               var n = new PerformanceObserver(function (e) {
                 return e.getEntries().map(t);
@@ -40,22 +40,22 @@
         },
         f = function (e, t) {
           var n = function n(i) {
-            ("pagehide" !== i.type && "hidden" !== document.visibilityState) ||
+            ('pagehide' !== i.type && 'hidden' !== document.visibilityState) ||
               (e(i),
               t &&
-                (removeEventListener("visibilitychange", n, !0),
-                removeEventListener("pagehide", n, !0)));
+                (removeEventListener('visibilitychange', n, !0),
+                removeEventListener('pagehide', n, !0)));
           };
-          addEventListener("visibilitychange", n, !0),
-            addEventListener("pagehide", n, !0);
+          addEventListener('visibilitychange', n, !0),
+            addEventListener('pagehide', n, !0);
         },
         s = function (e) {
           addEventListener(
-            "pageshow",
+            'pageshow',
             function (t) {
               t.persisted && e(t);
             },
-            !0,
+            !0
           );
         },
         m = function (e, t, n) {
@@ -69,7 +69,7 @@
         },
         v = -1,
         p = function () {
-          return "hidden" === document.visibilityState ? 0 : 1 / 0;
+          return 'hidden' === document.visibilityState ? 0 : 1 / 0;
         },
         d = function () {
           f(function (e) {
@@ -97,9 +97,9 @@
         g = function (e, t) {
           var n,
             i = l(),
-            r = u("FCP"),
+            r = u('FCP'),
             a = function (e) {
-              "first-contentful-paint" === e.name &&
+              'first-contentful-paint' === e.name &&
                 (f && f.disconnect(),
                 e.startTime < i.firstHiddenTime &&
                   ((r.value = e.startTime), r.entries.push(e), n(!0)));
@@ -107,13 +107,13 @@
             o =
               window.performance &&
               performance.getEntriesByName &&
-              performance.getEntriesByName("first-contentful-paint")[0],
-            f = o ? null : c("paint", a);
+              performance.getEntriesByName('first-contentful-paint')[0],
+            f = o ? null : c('paint', a);
           (o || f) &&
             ((n = m(e, r, t)),
             o && a(o),
             s(function (i) {
-              (r = u("FCP")),
+              (r = u('FCP')),
                 (n = m(e, r, t)),
                 requestAnimationFrame(function () {
                   requestAnimationFrame(function () {
@@ -134,7 +134,7 @@
             i = function (t) {
               T > -1 && e(t);
             },
-            r = u("CLS", 0),
+            r = u('CLS', 0),
             a = 0,
             o = [],
             v = function (e) {
@@ -149,14 +149,14 @@
                   a > r.value && ((r.value = a), (r.entries = o), n());
               }
             },
-            p = c("layout-shift", v);
+            p = c('layout-shift', v);
           p &&
             ((n = m(i, r, t)),
             f(function () {
               p.takeRecords().map(v), n(!0);
             }),
             s(function () {
-              (a = 0), (T = -1), (r = u("CLS", 0)), (n = m(i, r, t));
+              (a = 0), (T = -1), (r = u('CLS', 0)), (n = m(i, r, t));
             }));
         },
         E = { passive: !0, capture: !0 },
@@ -168,7 +168,7 @@
         S = function () {
           if (r >= 0 && r < a - w) {
             var e = {
-              entryType: "first-input",
+              entryType: 'first-input',
               name: i.type,
               target: i.target,
               cancelable: i.cancelable,
@@ -186,7 +186,7 @@
             var t =
               (e.timeStamp > 1e12 ? new Date() : performance.now()) -
               e.timeStamp;
-            "pointerdown" == e.type
+            'pointerdown' == e.type
               ? (function (e, t) {
                   var n = function () {
                       L(e, t), r();
@@ -195,33 +195,33 @@
                       r();
                     },
                     r = function () {
-                      removeEventListener("pointerup", n, E),
-                        removeEventListener("pointercancel", i, E);
+                      removeEventListener('pointerup', n, E),
+                        removeEventListener('pointercancel', i, E);
                     };
-                  addEventListener("pointerup", n, E),
-                    addEventListener("pointercancel", i, E);
+                  addEventListener('pointerup', n, E),
+                    addEventListener('pointercancel', i, E);
                 })(t, e)
               : L(t, e);
           }
         },
         F = function (e) {
-          ["mousedown", "keydown", "touchstart", "pointerdown"].forEach(
+          ['mousedown', 'keydown', 'touchstart', 'pointerdown'].forEach(
             function (t) {
               return e(t, b, E);
-            },
+            }
           );
         },
         C = function (e, t) {
           var n,
             a = l(),
-            v = u("FID"),
+            v = u('FID'),
             p = function (e) {
               e.startTime < a.firstHiddenTime &&
                 ((v.value = e.processingStart - e.startTime),
                 v.entries.push(e),
                 n(!0));
             },
-            d = c("first-input", p);
+            d = c('first-input', p);
           (n = m(e, v, t)),
             d &&
               f(function () {
@@ -230,7 +230,7 @@
             d &&
               s(function () {
                 var a;
-                (v = u("FID")),
+                (v = u('FID')),
                   (n = m(e, v, t)),
                   (o = []),
                   (r = -1),
@@ -245,24 +245,24 @@
         P = function (e, t) {
           var n,
             i = l(),
-            r = u("LCP"),
+            r = u('LCP'),
             a = function (e) {
               var t = e.startTime;
               t < i.firstHiddenTime && ((r.value = t), r.entries.push(e), n());
             },
-            o = c("largest-contentful-paint", a);
+            o = c('largest-contentful-paint', a);
           if (o) {
             n = m(e, r, t);
             var v = function () {
               k[r.id] ||
                 (o.takeRecords().map(a), o.disconnect(), (k[r.id] = !0), n(!0));
             };
-            ["keydown", "click"].forEach(function (e) {
+            ['keydown', 'click'].forEach(function (e) {
               addEventListener(e, v, { once: !0, capture: !0 });
             }),
               f(v, !0),
               s(function (i) {
-                (r = u("LCP")),
+                (r = u('LCP')),
                   (n = m(e, r, t)),
                   requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
@@ -276,17 +276,17 @@
         },
         D = function (e) {
           var t,
-            n = u("TTFB");
+            n = u('TTFB');
           (t = function () {
             try {
               var t =
-                performance.getEntriesByType("navigation")[0] ||
+                performance.getEntriesByType('navigation')[0] ||
                 (function () {
                   var e = performance.timing,
-                    t = { entryType: "navigation", startTime: 0 };
+                    t = { entryType: 'navigation', startTime: 0 };
                   for (var n in e)
-                    "navigationStart" !== n &&
-                      "toJSON" !== n &&
+                    'navigationStart' !== n &&
+                      'toJSON' !== n &&
                       (t[n] = Math.max(e[n] - e.navigationStart, 0));
                   return t;
                 })();
@@ -298,9 +298,9 @@
               (n.entries = [t]), e(n);
             } catch (e) {}
           }),
-            "complete" === document.readyState
+            'complete' === document.readyState
               ? setTimeout(t, 0)
-              : addEventListener("load", function () {
+              : addEventListener('load', function () {
                   return setTimeout(t, 0);
                 });
         };

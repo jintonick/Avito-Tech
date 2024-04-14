@@ -1,13 +1,13 @@
-import * as path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import webpack from "webpack";
+import * as path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
 const config = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -15,12 +15,12 @@ const config = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
             ],
           },
         },
@@ -28,13 +28,13 @@ const config = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [require("tailwindcss"), require("autoprefixer")],
+                plugins: [require('tailwindcss'), require('autoprefixer')],
               },
             },
           },
@@ -42,22 +42,22 @@ const config = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "images/[hash][ext][query]",
+          filename: 'images/[hash][ext][query]',
         },
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: './public/index.html',
     }),
     new webpack.DefinePlugin({
-      "process.env.TOKEN": JSON.stringify(process.env.TOKEN),
+      'process.env.TOKEN': JSON.stringify(process.env.TOKEN),
     }),
   ],
   devServer: {

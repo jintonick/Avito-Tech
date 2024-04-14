@@ -1,15 +1,15 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import Auth from "../pages/auth";
-import MoviePage from "../pages/movie-page";
-import ProtectedRoute from "./protected-routes";
-import CurrentMoviePage from "../pages/current-movie-page";
-import { useAuth } from "../utils/authprovider";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Auth from '../pages/auth';
+import MoviePage from '../pages/movie-page';
+import ProtectedRoute from './protected-routes';
+import CurrentMoviePage from '../pages/current-movie-page';
+import { useAuth } from '../utils/authprovider';
 
 const AppRoutes = () => {
   const auth = useAuth();
   const handleLogin = (username: string, password: string) => {
-    if (username === "test@mail.com" && password === "pass") {
+    if (username === 'test@mail.com' && password === 'pass') {
       auth.login();
     }
   };

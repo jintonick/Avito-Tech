@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import Layout from "./layouts/main-layout";
-import AuthProvider from "./utils/authprovider";
-import { store } from "./store/store";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Layout from './layouts/main-layout';
+import AuthProvider from './utils/authprovider';
+import { store } from './store/store';
 
 function App() {
   return (

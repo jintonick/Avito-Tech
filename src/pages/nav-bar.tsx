@@ -1,12 +1,12 @@
-import React from "react";
-import SearchInput from "../components/search/search-input";
-import { useSearch } from "../components/search/search-context";
-import { Select, DatePicker } from "antd";
-import dayjs, { Dayjs } from "dayjs";
-import countries from "./styles/countries.json";
-import reset from "../components/imgs/reset.png";
-import { NavBarProps } from "../interfaces/pages";
-import "./styles/navbar.css";
+import React from 'react';
+import SearchInput from '../components/search/search-input';
+import { useSearch } from '../components/search/search-context';
+import { Select, DatePicker } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
+import countries from './styles/countries.json';
+import reset from '../components/imgs/reset.png';
+import { NavBarProps } from '../interfaces/pages';
+import './styles/navbar.css';
 
 const { RangePicker } = DatePicker;
 
@@ -21,14 +21,14 @@ const NavBar: React.FC<NavBarProps> = ({
     value: country.slug,
     label: country.name,
   }));
-  const ageRatings = ["0+", "6+", "12+", "18+"];
+  const ageRatings = ['0+', '6+', '12+', '18+'];
   const ageRatingOptions = ageRatings.map((rating) => ({
     value: rating,
     label: rating,
   }));
   const handleYearChange = (
     dates: [Dayjs | null, Dayjs | null] | null,
-    dateStrings: [string, string],
+    dateStrings: [string, string]
   ) => {
     const startYear = dateStrings[0];
     const endYear = dateStrings[1];
@@ -45,8 +45,8 @@ const NavBar: React.FC<NavBarProps> = ({
   };
   const filterOption = (
     input: string,
-    option?: { label: string; value: string },
-  ) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
+    option?: { label: string; value: string }
+  ) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
@@ -62,8 +62,8 @@ const NavBar: React.FC<NavBarProps> = ({
             style={{ width: 180, height: 40 }}
             onChange={handleYearChange}
             value={[
-              yearFilter.start ? dayjs(yearFilter.start, "YYYY") : null,
-              yearFilter.end ? dayjs(yearFilter.end, "YYYY") : null,
+              yearFilter.start ? dayjs(yearFilter.start, 'YYYY') : null,
+              yearFilter.end ? dayjs(yearFilter.end, 'YYYY') : null,
             ]}
           />
           <Select

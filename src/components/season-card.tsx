@@ -1,5 +1,5 @@
-import React from "react";
-import { EpisodeCardProps } from "../interfaces/components";
+import React from 'react';
+import { EpisodeCardProps } from '../interfaces/components';
 
 export default function SeasonCard({ episode }: EpisodeCardProps) {
   return (

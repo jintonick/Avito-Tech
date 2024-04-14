@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import SeasonCard from "./season-card";
-import { SeasonsListProps } from "../interfaces/components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import SeasonCard from './season-card';
+import { SeasonsListProps } from '../interfaces/components';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const SeasonsList: React.FC<SeasonsListProps> = ({ seasons }) => {
   const [openSeasonId, setOpenSeasonId] = useState<string | null>(null);
@@ -40,7 +40,7 @@ const SeasonsList: React.FC<SeasonsListProps> = ({ seasons }) => {
             >
               <h2 className="text-[24px] cursor-pointer">{season.name}</h2>
               <span className="text-[#ff5500]">
-                {openSeasonId === season.id ? "▲" : "▼"}
+                {openSeasonId === season.id ? '▲' : '▼'}
               </span>
             </div>
             <div className="series-slider-container">
