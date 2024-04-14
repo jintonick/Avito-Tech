@@ -1,6 +1,11 @@
 ## Установка зависимостей
 
-npm install \--legacy-peer-deps
+```npm install \--legacy-peer-deps```
+
+после устаноки node_modules выполняем
+
+```npx prettier --write "**/*.{js,jsx,ts,tsx,css,md}"```
+
 
 ## Запуск проекта
 
